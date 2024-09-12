@@ -10,14 +10,14 @@ app = FastAPI()
 
 # Define the input data structure
 class CarFeatures(BaseModel):
-    feature_1: float
-    feature_2: float
+    age: float
+    gender: float
 
 # Define the prediction endpoint
 @app.post("/predict")
 def predict_car_type(features: CarFeatures):
     # Prepare input data for prediction
-    input_data = [[features.feature_1, features.feature_2]]
+    input_data = [[features.age, features.gender]]
     
     # Make the prediction
     prediction = model.predict(input_data)
